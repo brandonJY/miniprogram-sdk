@@ -1,0 +1,8 @@
+/* client/pages/test/test.wxss */
+.button{
+  background-color: orange;
+  color: white;
+  width: 100px;
+  height: 40px;
+  margin-top: 10px
+}

@@ -2,15 +2,48 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
-
+var ga = require('../../utils/ga.js'); 
+var HitBuilders = ga.HitBuilders;
+// 获取那个Tracker实例
+var t = getApp().getTracker();
 Page({
     data: {
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
-    },
+        requestResult: '',
+        canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
 
+  onLoad: function (options) {
+    // 页面初始化 options为页面跳转所带来的参数
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
+  },
+
+  bindGetUserInfo(e) {
+    console.log(e.detail.userInfo)
+  },
+
+  onShow: function () {
+    
+    t.setScreenName('home page');
+    t.send(new HitBuilders.ScreenViewBuilder().build());
+    t.send(new HitBuilders.ScreenViewBuilder()
+      .setCustomDimension(1, "181111")
+      .build()
+    );
+  },
     // 用户登录示例
     bindGetUserInfo: function () {
         if (this.data.logged) return
