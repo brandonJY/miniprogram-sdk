@@ -11,10 +11,11 @@
 		"newFeature": true,
 		"nodeModules": false
 	},
-	"appid": "wxb035369d8347e6f1",
+	"appid": "wxd1afae55475e708d",
 	"projectname": "SiennaTest",
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionRoot": "cloud-functions/",
 	"condition": {}
 }

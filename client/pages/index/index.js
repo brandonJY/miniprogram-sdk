@@ -12,10 +12,28 @@ Page({
         logged: false,
         takeSession: false,
         requestResult: '',
+        openId: '',
         canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name: 'get',
+      complete: res => {
+        console.log('callFunction result: ', res.result.OPENID)
+        this.setData({
+          openId: res.result.OPENID
+        })
+        t.send(new HitBuilders.ScreenViewBuilder()
+          .setCustomDimension(1, this.data.openId)
+          .build()
+        );
+      }
+    })
+    t.send(new HitBuilders.ScreenViewBuilder()
+      .setCustomDimension(1, this.data.openId)
+      .build()
+    );
     // 页面初始化 options为页面跳转所带来的参数
     wx.getSetting({
       success(res) {
@@ -39,10 +57,7 @@ Page({
     
     t.setScreenName('home page');
     t.send(new HitBuilders.ScreenViewBuilder().build());
-    t.send(new HitBuilders.ScreenViewBuilder()
-      .setCustomDimension(1, "181111")
-      .build()
-    );
+    
   },
     // 用户登录示例
     bindGetUserInfo: function () {

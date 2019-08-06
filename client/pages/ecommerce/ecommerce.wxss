@@ -1,0 +1,8 @@
+/* client/pages/ecommerce/ecommerce.wxss */
+.button{
+  background-color: orange;
+  color: white;
+  width: 200px;
+  height: 40px;
+  margin-top: 10px
+}

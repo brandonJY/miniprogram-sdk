@@ -3,4 +3,3 @@
 <button bindtap='register' class='button'>register</button>
 <button bindtap='login' class='button'>login</button>
 <button bindtap='change_password' class='button'>change password</button>
-<button open-type="getPhoneNumber"  class='button' bindgetphonenumber="getPhoneNumber">Get phone number</button>

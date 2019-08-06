@@ -1,0 +1,3 @@
+<!--client/pages/ecommerce/ecommerce.wxml-->
+<button bindtap='search' class='button'>product</button>
+<button bindtap='addToCart' class='button'>add to cart</button>

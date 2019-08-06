@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/addCgi/addCgi",
-    "pages/login/login",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/ecommerce/ecommerce"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -19,14 +19,15 @@
         "pagePath": "pages/index/index"
       },
       {
-        "text": "login",
-        "pagePath": "pages/login/login"
-      },
-      {
         "text": "test",
         "pagePath": "pages/test/test"
+      },
+      {
+        "text": "Ecom",
+        "pagePath": "pages/ecommerce/ecommerce"
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "cloud": true
 }
